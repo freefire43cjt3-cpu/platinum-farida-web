@@ -1,0 +1,881 @@
+/* =====================================================
+   HERO SECTION
+===================================================== */
+
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 78% 45%,
+      rgba(185, 28, 28, 0.22),
+      transparent 32%
+    ),
+    #0d0b0b;
+
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   BACKGROUND GLOWS
+===================================================== */
+
+.hero-glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter: blur(85px);
+}
+
+.hero-glow-left {
+  width: 350px;
+  height: 350px;
+
+  left: -180px;
+  top: 20%;
+
+  background: rgba(185, 28, 28, 0.18);
+}
+
+.hero-glow-right {
+  width: 400px;
+  height: 400px;
+
+  right: -180px;
+  bottom: 5%;
+
+  background: rgba(185, 28, 28, 0.1);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.hero-container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1300px;
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding:
+    150px
+    30px
+    100px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  align-items: center;
+
+  gap: 70px;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.hero-content {
+  max-width: 650px;
+}
+
+
+/* =====================================================
+   LABEL
+===================================================== */
+
+.hero-label {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 25px;
+
+  color: #d62828;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 3px;
+}
+
+.hero-label span {
+  width: 38px;
+  height: 2px;
+
+  background: #d62828;
+}
+
+
+/* =====================================================
+   HEADING
+===================================================== */
+
+.hero-content h1 {
+  margin: 0;
+
+  font-size: clamp(
+    44px,
+    5.2vw,
+    76px
+  );
+
+  line-height: 1.02;
+
+  font-weight: 900;
+
+  letter-spacing: -2.5px;
+}
+
+.hero-content h1 span {
+  color: #d62828;
+}
+
+
+/* =====================================================
+   PARAGRAPH
+===================================================== */
+
+.hero-content p {
+  max-width: 580px;
+
+  margin-top: 28px;
+
+  color: rgba(255, 255, 255, 0.64);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero-buttons {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-top: 35px;
+
+  flex-wrap: wrap;
+}
+
+
+/* =====================================================
+   PRIMARY BUTTON
+===================================================== */
+
+.hero-primary-btn {
+  height: 56px;
+
+  padding: 0 28px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dc2626,
+      #991b1b
+    );
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 12px 30px rgba(
+      185,
+      28,
+      28,
+      0.25
+    );
+
+  transition:
+    box-shadow 0.3s ease,
+    background 0.3s ease;
+}
+
+.hero-primary-btn:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #ef4444,
+      #b91c1c
+    );
+
+  box-shadow:
+    0 16px 40px rgba(
+      185,
+      28,
+      28,
+      0.38
+    );
+}
+
+.hero-primary-btn span {
+  font-size: 19px;
+}
+
+
+/* =====================================================
+   SECONDARY BUTTON
+===================================================== */
+
+.hero-secondary-btn {
+  height: 56px;
+
+  padding: 0 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 30px;
+
+  border:
+    1px solid rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.04
+    );
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(10px);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.hero-secondary-btn:hover {
+  background:
+    rgba(
+      185,
+      28,
+      28,
+      0.1
+    );
+
+  border-color:
+    rgba(
+      185,
+      28,
+      28,
+      0.5
+    );
+}
+
+
+/* =====================================================
+   TRUST
+===================================================== */
+
+.hero-trust {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 25px;
+
+  margin-top: 35px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.5
+    );
+
+  font-size: 11px;
+}
+
+.hero-trust div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.hero-trust span {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #d62828;
+
+  box-shadow:
+    0 0 10px rgba(
+      214,
+      40,
+      40,
+      0.5
+    );
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.hero-visual {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 600px;
+
+  margin: 0 auto;
+}
+
+.hero-image-glow {
+  position: absolute;
+
+  inset: -30px;
+
+  border-radius: 40px;
+
+  background:
+    rgba(
+      185,
+      28,
+      28,
+      0.24
+    );
+
+  filter: blur(50px);
+
+  z-index: -1;
+}
+
+
+/* =====================================================
+   IMAGE CARD
+===================================================== */
+
+.hero-image-card {
+  position: relative;
+
+  padding: 8px;
+
+  border-radius: 32px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  border:
+    1px solid rgba(
+      185,
+      28,
+      28,
+      0.28
+    );
+
+  box-shadow:
+    0 30px 80px rgba(
+      0,
+      0,
+      0,
+      0.45
+    );
+
+  transition:
+    transform 0.5s ease;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.hero-image-wrapper {
+  position: relative;
+
+  overflow: hidden;
+
+  aspect-ratio: 4 / 4.5;
+
+  border-radius: 25px;
+}
+
+.hero-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =====================================================
+   IMAGE OVERLAY
+===================================================== */
+
+.hero-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8),
+      transparent 55%,
+      rgba(185, 28, 28, 0.08)
+    );
+}
+
+
+/* =====================================================
+   IMAGE INFO
+===================================================== */
+
+.hero-image-info {
+  position: absolute;
+
+  left: 25px;
+  right: 25px;
+  bottom: 25px;
+
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.hero-image-info small {
+  display: block;
+
+  color: #d62828;
+
+  font-size: 9px;
+
+  font-weight: 800;
+
+  letter-spacing: 3px;
+}
+
+.hero-image-info h3 {
+  margin: 6px 0 0;
+
+  color: #ffffff;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+
+/* =====================================================
+   PF CIRCLE
+===================================================== */
+
+.hero-pf {
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(
+      185,
+      28,
+      28,
+      0.65
+    );
+
+  background:
+    rgba(
+      0,
+      0,
+      0,
+      0.4
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =====================================================
+   FLOATING CARD
+===================================================== */
+
+.hero-floating-card {
+  position: absolute;
+
+  left: 25px;
+
+  bottom: -22px;
+
+  padding:
+    14px
+    20px;
+
+  border-radius: 15px;
+
+  background:
+    rgba(
+      23,
+      19,
+      19,
+      0.92
+    );
+
+  border:
+    1px solid rgba(
+      185,
+      28,
+      28,
+      0.3
+    );
+
+  box-shadow:
+    0 15px 35px rgba(
+      0,
+      0,
+      0,
+      0.3
+    );
+
+  backdrop-filter: blur(15px);
+}
+
+.hero-floating-card small {
+  display: block;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.4
+    );
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.hero-floating-card strong {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #d62828;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   BOTTOM FADE
+===================================================== */
+
+.hero-bottom-fade {
+  position: absolute;
+
+  z-index: 3;
+
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  height: 130px;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to top,
+      #0d0b0b,
+      transparent
+    );
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .hero-container {
+    gap: 45px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 55px;
+  }
+
+  .hero-content p {
+    font-size: 15px;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 800px) {
+
+  .hero-container {
+    grid-template-columns: 1fr;
+
+    gap: 60px;
+
+    padding:
+      130px
+      20px
+      100px;
+
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 650px;
+
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    justify-content: center;
+  }
+
+  .hero-content h1 {
+    font-size:
+      clamp(
+        42px,
+        10vw,
+        58px
+      );
+
+    letter-spacing: -1.5px;
+  }
+
+  .hero-content p {
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 15px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .hero-trust {
+    justify-content: center;
+  }
+
+  .hero-visual {
+    max-width: 550px;
+  }
+}
+
+
+/* =====================================================
+   SMALL PHONES
+===================================================== */
+
+@media (max-width: 500px) {
+
+  .hero-container {
+    padding:
+      120px
+      16px
+      90px;
+
+    gap: 50px;
+  }
+
+  .hero-label {
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .hero-label span {
+    width: 25px;
+  }
+
+  .hero-content h1 {
+    font-size: 39px;
+
+    line-height: 1.06;
+  }
+
+  .hero-content p {
+    margin-top: 22px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    width: 100%;
+
+    margin-top: 28px;
+  }
+
+  .hero-primary-btn,
+  .hero-secondary-btn {
+    width: 100%;
+
+    height: 53px;
+  }
+
+  .hero-trust {
+    gap: 12px 18px;
+
+    margin-top: 28px;
+
+    font-size: 10px;
+  }
+
+  .hero-image-info {
+    left: 18px;
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .hero-image-info h3 {
+    font-size: 18px;
+  }
+
+  .hero-pf {
+    width: 40px;
+    height: 40px;
+
+    font-size: 11px;
+  }
+
+  .hero-floating-card {
+    left: 12px;
+
+    bottom: -20px;
+
+    padding:
+      12px
+      15px;
+  }
+
+  .hero-floating-card strong {
+    font-size: 10px;
+  }
+}
+
+
+/* =====================================================
+   VERY SMALL PHONES
+===================================================== */
+
+@media (max-width: 360px) {
+
+  .hero-content h1 {
+    font-size: 35px;
+  }
+
+  .hero-content p {
+    font-size: 13px;
+  }
+
+  .hero-trust {
+    flex-direction: column;
+
+    align-items: center;
+  }
+}

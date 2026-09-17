@@ -1,0 +1,420 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  padding: 90px 25px 25px;
+  background: #090808;
+  color: #ffffff;
+}
+
+.footer-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   BACKGROUND GLOWS
+========================= */
+
+.footer-glow {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+
+.footer-glow-left {
+  top: -220px;
+  left: 5%;
+  background: rgba(220, 38, 38, 0.10);
+}
+
+.footer-glow-right {
+  right: -180px;
+  bottom: -220px;
+  background: rgba(153, 27, 27, 0.08);
+}
+
+/* =========================
+   FOOTER GRID
+========================= */
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1.3fr 0.9fr;
+  gap: 50px;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo-mark {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(220, 38, 38, 0.7);
+  border-radius: 50%;
+
+  background: #111010;
+
+  box-shadow:
+    0 0 20px rgba(220, 38, 38, 0.12),
+    inset 0 0 12px rgba(255, 255, 255, 0.03);
+}
+
+.footer-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.footer-logo-text small {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.footer-logo-text strong {
+  margin-top: 5px;
+
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.footer-brand p {
+  max-width: 310px;
+  margin: 22px 0 15px;
+
+  color: rgba(255, 255, 255, 0.46);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.footer-established {
+  display: inline-block;
+
+  color: #e8c978;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+/* =========================
+   COLUMNS
+========================= */
+
+.footer-column h3 {
+  position: relative;
+
+  margin: 0 0 24px;
+
+  color: #dc2626;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.footer-column h3::after {
+  content: "";
+
+  display: block;
+
+  width: 25px;
+  height: 2px;
+
+  margin-top: 9px;
+
+  background: #dc2626;
+  border-radius: 10px;
+}
+
+.footer-column ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+.footer-column ul li a {
+  display: inline-block;
+
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+.footer-contact {
+  min-width: 0;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 17px;
+
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: #dc2626;
+}
+
+.footer-contact-item a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+
+  transition: color 0.25s ease;
+}
+
+.footer-contact-item a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.footer-socials p {
+  max-width: 220px;
+  margin: 0 0 20px;
+
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.whatsapp-link {
+  width: fit-content;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px 17px;
+
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  border-radius: 10px;
+
+  background: rgba(220, 38, 38, 0.08);
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.whatsapp-link svg {
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.whatsapp-link:hover {
+  border-color: #dc2626;
+  background: rgba(220, 38, 38, 0.14);
+
+  color: #ffffff;
+
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.12);
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 65px 0 22px;
+
+  background: linear-gradient(
+    to right,
+    rgba(220, 38, 38, 0.35),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+}
+
+/* =========================
+   BOTTOM BAR
+========================= */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  min-height: 50px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.footer-bottom > span {
+  color: rgba(255, 255, 255, 0.32);
+
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.back-to-top {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  border-radius: 50%;
+
+  background: rgba(220, 38, 38, 0.06);
+
+  color: #dc2626;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.back-to-top:hover {
+  border-color: #dc2626;
+  background: #dc2626;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 45px 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 70px 18px 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-brand p {
+    max-width: 340px;
+  }
+
+  .footer-socials p {
+    max-width: 300px;
+  }
+
+  .whatsapp-link {
+    padding: 13px 18px;
+  }
+
+  .footer-divider {
+    margin-top: 50px;
+  }
+
+  .footer-bottom {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .footer-bottom p {
+    width: 100%;
+  }
+
+  .footer-bottom > span {
+    margin-right: auto;
+  }
+
+  .back-to-top {
+    margin-left: auto;
+  }
+}

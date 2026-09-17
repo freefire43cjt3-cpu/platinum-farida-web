@@ -1,0 +1,447 @@
+.payment-section {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 25px;
+  background: #0d0b0b;
+  color: #ffffff;
+}
+
+.payment-container {
+  position: relative;
+  z-index: 2;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+/* =========================
+   GLOWS
+========================= */
+
+.payment-glow {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+
+.payment-glow-left {
+  top: -170px;
+  left: -180px;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.payment-glow-right {
+  right: -180px;
+  bottom: -180px;
+  background: rgba(153, 27, 27, 0.07);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.payment-header {
+  max-width: 650px;
+  margin: 0 auto 55px;
+  text-align: center;
+}
+
+.payment-label {
+  display: inline-block;
+  margin-bottom: 15px;
+  color: #dc2626;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.payment-header h2 {
+  margin: 0;
+  font-size: clamp(38px, 5vw, 56px);
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -2px;
+}
+
+.payment-header h2 strong {
+  color: #dc2626;
+}
+
+.payment-header p {
+  max-width: 590px;
+  margin: 20px auto 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================
+   PAYMENT GRID
+========================= */
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* =========================
+   PAYMENT CARD
+========================= */
+
+.payment-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 20px;
+  background: #171313;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.payment-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(220, 38, 38, 0.35);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 25px rgba(220, 38, 38, 0.05);
+}
+
+/* =========================
+   BANK IMAGE
+========================= */
+
+.bank-image {
+  height: 210px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 25px;
+
+  background: #ffffff;
+}
+
+.bank-image img {
+  width: 280px;
+  height: 150px;
+
+  max-width: 100%;
+  max-height: 100%;
+
+  object-fit: contain;
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.payment-card-content {
+  padding: 27px;
+}
+
+.payment-method {
+  display: inline-block;
+  margin-bottom: 8px;
+
+  color: #dc2626;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.payment-card-content h3 {
+  margin: 0 0 25px;
+
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.payment-detail {
+  padding: 16px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.payment-detail span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.payment-detail strong {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.account-number-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.account-number-detail strong {
+  color: #e8c978;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+/* =========================
+   COPY BUTTON
+========================= */
+
+.copy-button {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 9px 12px;
+
+  border: 1px solid rgba(220, 38, 38, 0.3);
+  border-radius: 8px;
+
+  background: rgba(220, 38, 38, 0.06);
+
+  color: #dc2626;
+
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.copy-button:hover {
+  border-color: #dc2626;
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* =========================
+   INSTRUCTION
+========================= */
+
+.payment-instruction {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-top: 25px;
+  padding: 16px 20px;
+
+  border-left: 2px solid #dc2626;
+  border-radius: 0 10px 10px 0;
+
+  background: rgba(220, 38, 38, 0.05);
+}
+
+.payment-instruction svg {
+  flex-shrink: 0;
+  color: #dc2626;
+}
+
+.payment-instruction p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================
+   CONFIRMATION
+========================= */
+
+.payment-confirmation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  margin-top: 25px;
+  padding: 24px;
+
+  border: 1px solid rgba(232, 201, 120, 0.15);
+  border-radius: 16px;
+
+  background: rgba(232, 201, 120, 0.035);
+}
+
+.payment-confirmation span {
+  display: block;
+  margin-bottom: 7px;
+
+  color: #e8c978;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.payment-confirmation h3 {
+  margin: 0 0 7px;
+
+  color: #ffffff;
+  font-size: 17px;
+}
+
+.payment-confirmation p {
+  max-width: 550px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.payment-whatsapp {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  padding: 13px 18px;
+
+  border-radius: 25px;
+
+  background: #dc2626;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.payment-whatsapp:hover {
+  transform: translateY(-2px);
+  background: #b91c1c;
+
+  box-shadow:
+    0 10px 25px rgba(220, 38, 38, 0.2);
+}
+
+/* =========================
+   NOTE
+========================= */
+
+.payment-note {
+  margin: 17px 0 0;
+
+  text-align: center;
+
+  color: rgba(255, 255, 255, 0.28);
+  font-size: 10px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 750px) {
+  .payment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .payment-confirmation {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .payment-whatsapp {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+  .payment-section {
+    padding: 80px 16px;
+  }
+
+  .payment-header {
+    margin-bottom: 40px;
+  }
+
+  .payment-header h2 {
+    font-size: 40px;
+  }
+
+  .payment-header p {
+    font-size: 13px;
+  }
+
+  .payment-card-content {
+    padding: 22px;
+  }
+
+  .bank-image {
+    height: 180px;
+  }
+
+  .bank-image img {
+    width: 250px;
+    height: 135px;
+  }
+
+  .account-number-detail {
+    align-items: flex-start;
+  }
+
+  .account-number-detail strong {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .account-number-detail {
+    flex-direction: column;
+  }
+
+  .copy-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bank-image {
+    height: 165px;
+  }
+
+  .bank-image img {
+    width: 230px;
+    height: 125px;
+  }
+}
