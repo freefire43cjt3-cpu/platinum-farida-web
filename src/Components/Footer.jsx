@@ -110,9 +110,15 @@ function Footer() {
               <MapPin size={17} />
 
               <span>
-                No. 30B Yakubu Gowon Way,
-                <br />
-                Jos, Plateau State
+               Ohia-Ekposikpo,
+                         <br />
+                         Off PH/Aba Expressway,
+                         <br />
+                         Elelenwo Town,
+                         <br />
+                         Obio/Akpor LGA,
+                         <br />
+                         Port-Harcourt, Rivers State
               </span>
             </div>
 
