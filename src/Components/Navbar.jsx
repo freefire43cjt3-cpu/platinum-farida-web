@@ -21,7 +21,7 @@ function Navbar({ cartCount }) {
         >
           <div className="logo-mark">
             <img
-              src="/images/pdflogo.jpeg"
+              src="/images/pff.jpeg"
               alt="Platinum Farida Foods Logo"
             />
           </div>
