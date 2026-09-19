@@ -52,12 +52,14 @@ function Hero() {
             Delivered With Care.
           </motion.h1>
 
+          {/* HERO DESCRIPTION */}
           <motion.p
-            initial={{ opacity: 0, y: 25 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{
-              duration: 0.7,
-              delay: 0.3,
+              duration: 0.8,
+              delay: 0.4,
+              ease: "easeOut",
             }}
           >
             Premium-quality beef, goat, ram and carefully selected

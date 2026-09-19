@@ -97,6 +97,10 @@
 
 .hero-content {
   max-width: 650px;
+
+  position: relative;
+
+  z-index: 5;
 }
 
 
@@ -162,11 +166,15 @@
 ===================================================== */
 
 .hero-content p {
+  position: relative;
+
+  z-index: 5;
+
   max-width: 580px;
 
   margin-top: 28px;
 
-  color: rgba(255, 255, 255, 0.64);
+  color: rgba(255, 255, 255, 0.8);
 
   font-size: 16px;
 
