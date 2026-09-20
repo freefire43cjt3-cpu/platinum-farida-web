@@ -3,11 +3,12 @@
 ========================= */
 
 .navbar {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  z-index: 9999;
 
   padding: 16px 20px;
   box-sizing: border-box;
@@ -34,6 +35,7 @@
 
   gap: 25px;
 }
+
 
 /* =========================
    LOGO
@@ -111,6 +113,7 @@
   letter-spacing: 1.5px;
 }
 
+
 /* =========================
    DESKTOP NAV
 ========================= */
@@ -166,6 +169,7 @@
   width: 22px;
 }
 
+
 /* =========================
    ACTIONS
 ========================= */
@@ -178,6 +182,7 @@
 
   flex-shrink: 0;
 }
+
 
 /* =========================
    ORDER BUTTON
@@ -219,6 +224,7 @@
   box-shadow:
     0 10px 25px rgba(185, 28, 28, 0.25);
 }
+
 
 /* =========================
    CART
@@ -287,6 +293,7 @@
   font-weight: 900;
 }
 
+
 /* =========================
    MOBILE MENU BUTTON
 ========================= */
@@ -320,6 +327,11 @@
   cursor: pointer;
 
   position: relative;
+
+  /*
+    Keeps hamburger/X above
+    the mobile dropdown.
+  */
   z-index: 1200;
 
   transition:
@@ -355,6 +367,7 @@
     opacity 0.3s ease;
 }
 
+
 /* =========================
    OPEN → X
 ========================= */
@@ -371,6 +384,7 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
+
 /* =========================
    MOBILE NAV
 ========================= */
@@ -379,11 +393,13 @@
   display: none;
 }
 
+
 /* =========================
    TABLET
 ========================= */
 
 @media (max-width: 1080px) {
+
   .desktop-nav {
     gap: 18px;
   }
@@ -397,11 +413,13 @@
   }
 }
 
+
 /* =========================
    MOBILE
 ========================= */
 
 @media (max-width: 800px) {
+
   .navbar {
     padding: 10px 14px;
   }
@@ -413,7 +431,10 @@
     gap: 0;
   }
 
-  /* LOGO */
+
+  /* =========================
+     LOGO
+  ========================= */
 
   .navbar-logo {
     flex: 1;
@@ -444,7 +465,10 @@
     letter-spacing: 1.2px;
   }
 
-  /* HIDE DESKTOP NAV */
+
+  /* =========================
+     HIDE DESKTOP NAV
+  ========================= */
 
   .desktop-nav {
     display: none;
@@ -454,7 +478,10 @@
     display: none;
   }
 
-  /* ACTIONS */
+
+  /* =========================
+     ACTIONS
+  ========================= */
 
   .navbar-actions {
     flex: 0 0 auto;
@@ -467,7 +494,10 @@
     margin-left: auto;
   }
 
-  /* CART */
+
+  /* =========================
+     CART
+  ========================= */
 
   .cart-button {
     width: 40px;
@@ -476,7 +506,10 @@
     flex: 0 0 40px;
   }
 
-  /* HAMBURGER */
+
+  /* =========================
+     HAMBURGER
+  ========================= */
 
   .menu-button {
     display: flex !important;
@@ -502,7 +535,10 @@
     opacity: 1;
   }
 
-  /* MOBILE DROPDOWN */
+
+  /* =========================
+     GLASS MOBILE DROPDOWN
+  ========================= */
 
   .mobile-nav {
     position: absolute;
@@ -520,16 +556,24 @@
 
     padding: 10px;
 
-    border: 1px solid rgba(185, 28, 28, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     border-radius: 18px;
 
-    background: rgba(23, 19, 19, 0.98);
+    /*
+      Semi-transparent background allows
+      the blur effect to actually show.
+    */
+    background: rgba(13, 11, 11, 0.68);
 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /*
+      Blurs whatever is behind the menu.
+    */
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
 
     box-shadow:
-      0 25px 60px rgba(0, 0, 0, 0.4);
+      0 25px 60px rgba(0, 0, 0, 0.45),
+      0 0 30px rgba(185, 28, 28, 0.08);
 
     opacity: 0;
     visibility: hidden;
@@ -541,15 +585,32 @@
       opacity 0.25s ease,
       transform 0.25s ease,
       visibility 0.25s ease;
+
+    /*
+      Menu stays below hamburger/X.
+    */
+    z-index: 1100;
   }
+
+
+  /* =========================
+     OPEN MENU
+  ========================= */
 
   .mobile-nav-open {
     opacity: 1;
+
     visibility: visible;
+
     pointer-events: auto;
 
     transform: translateY(0);
   }
+
+
+  /* =========================
+     MOBILE LINKS
+  ========================= */
 
   .mobile-nav a {
     width: 100%;
@@ -560,7 +621,7 @@
 
     border-radius: 10px;
 
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.82);
 
     text-decoration: none;
 
@@ -572,16 +633,23 @@
       color 0.2s ease;
   }
 
-  .mobile-nav a:hover {
+  .mobile-nav a:hover,
+  .mobile-nav a:active {
     background: rgba(185, 28, 28, 0.12);
 
     color: #ffffff;
   }
 
+
+  /* =========================
+     MOBILE ORDER BUTTON
+  ========================= */
+
   .mobile-order-button {
     margin-top: 7px;
 
     display: flex !important;
+
     align-items: center;
     justify-content: center;
 
@@ -591,13 +659,20 @@
 
     font-weight: 900 !important;
   }
+
+  .mobile-order-button:hover,
+  .mobile-order-button:active {
+    background: #dc2626 !important;
+  }
 }
+
 
 /* =========================
    SMALL PHONES
 ========================= */
 
 @media (max-width: 380px) {
+
   .navbar {
     padding-left: 10px;
     padding-right: 10px;
@@ -639,5 +714,30 @@
     height: 2px;
 
     flex-basis: 2px;
+  }
+
+  .mobile-nav {
+    border-radius: 16px;
+
+    padding: 9px;
+  }
+}
+
+
+/* =========================
+   REDUCE MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .desktop-nav a,
+  .desktop-nav a::after,
+  .order-button,
+  .cart-button,
+  .menu-button,
+  .menu-button span,
+  .mobile-nav,
+  .mobile-nav a {
+    transition: none;
   }
 }
