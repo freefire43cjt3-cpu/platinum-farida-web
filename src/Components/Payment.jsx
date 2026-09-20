@@ -1,214 +1,239 @@
 import { motion } from "framer-motion";
-import {
-  CreditCard,
-  Copy,
-  CheckCircle2,
-  MessageCircle,
-} from "lucide-react";
-import { useState } from "react";
-import "./Payment.css";
+import "./Products.css";
 
-const accounts = [
+const products = [
   {
     id: 1,
-    bank: "FCMB",
-    accountName: "Platinum Farida Foods Services Nig. Ltd.",
-    accountNumber: "2632957010",
-    image: "/images/fcmb.jpeg",
+    name: "Beef",
+    price: 7500,
+    image: "/images/bonelessbeef.jpeg",
   },
   {
     id: 2,
-    bank: "ZENITH BANK",
-    accountName: "Platinum Farida Foods Services Nig. Ltd.",
-    accountNumber: "1016242417",
-    image: "/images/zenith.jpeg",
+    name: "Goat Meat",
+    price: 8500,
+    image: "/images/wholegoat.jpeg",
+  },
+  {
+    id: 3,
+    name: "Shaki",
+    price: 7500,
+    image: "/images/shaki1.jpeg",
+  },
+  {
+    id: 4,
+    name: "Liver",
+    price: 7000,
+    image: "/images/liver1.jpeg",
+  },
+  {
+    id: 5,
+    name: "Cow Skin (Kpomo)",
+    price: 7000,
+    image: "/images/cowskin.jpeg",
+  },
+  {
+    id: 6,
+    name: "Cow Head",
+    price: 7500,
+    image: "/images/cowhead.jpeg",
+  },
+  {
+    id: 7,
+    name: "Fillet Steak (Tenderlion)",
+    price: 8500,
+    image: "/images/filetsteak.jpeg",
+  },
+  {
+    id: 8,
+    name: "Ram",
+    price: 8500,
+    image: "/images/ram1.jpeg",
+  },
+  {
+    id: 9,
+    name: "Cow Leg",
+    price: 7800,
+    image: "/images/cowleg2.jpeg",
+  },
+  {
+    id: 11,
+    name: "Cow Tail (Skin)",
+    price: 7800,
+    image: "/images/cowleg1.jpeg",
+  },
+  {
+    id: 10,
+    name: "Cow Tail (Roasted)",
+    price: 7800,
+    image: "/images/cowtail.jpeg",
+  },
+  {
+    id: 12,
+    name: "Minced Meat",
+    price: 7500,
+    image: "/images/grindedmeat.jpeg",
+  },
+  {
+    id: 13,
+    name: "Kidney",
+    price: 7500,
+    image: "/images/kidney.jpeg",
+  },
+  {
+    id: 14,
+    name: "Chicken",
+    price: 6000,
+    image: "/images/chicken.jpeg",
   },
 ];
 
-function Payment() {
-  const [copiedAccount, setCopiedAccount] = useState("");
-
-  const copyAccountNumber = async (accountNumber) => {
-    try {
-      await navigator.clipboard.writeText(accountNumber);
-
-      setCopiedAccount(accountNumber);
-
-      setTimeout(() => {
-        setCopiedAccount("");
-      }, 2500);
-    } catch (error) {
-      console.error("Unable to copy account number:", error);
-    }
-  };
-
-  const whatsappMessage = encodeURIComponent(
-    "Hello Platinum Farida, I have made payment for my order. Please confirm my payment."
-  );
-
+function Products({ addToCart }) {
   return (
-    <section className="payment-section" id="payment">
-      <div className="payment-glow payment-glow-left"></div>
-      <div className="payment-glow payment-glow-right"></div>
+    <section className="products-section" id="products">
 
-      <div className="payment-container">
+      <div className="products-glow products-glow-left"></div>
+      <div className="products-glow products-glow-right"></div>
 
-        {/* HEADER */}
+      <div className="products-container">
+
         <motion.div
-          className="payment-header"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          className="products-header"
+          initial={{
+            opacity: 0,
+            y: 25,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+          transition={{
+            duration: 0.5,
+          }}
         >
-          <span className="payment-label">
-            PAYMENT OPTIONS
-          </span>
+
+          <div className="products-label">
+            <span></span>
+            Fresh Selection
+            <span></span>
+          </div>
 
           <h2>
-            Make Your <strong>Payment</strong>
+            Our <span>Products</span>
           </h2>
 
           <p>
-            After placing your order, make your payment using
-            any of the bank accounts below and send your payment
-            confirmation to Platinum Farida.
+            Quality meat products carefully selected and supplied
+            by Platinum Farida Foods Services Nig. Ltd.
           </p>
+
         </motion.div>
 
-        {/* PAYMENT CARDS */}
-        <div className="payment-grid">
 
-          {accounts.map((account, index) => (
-            <motion.div
-              className="payment-card"
-              key={account.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.7,
-                delay: index * 0.15,
+        <motion.div
+          className="products-grid"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+            amount: 0.05,
+          }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.04,
+              },
+            },
+          }}
+        >
+
+          {products.map((product) => (
+            <motion.article
+              className="product-card"
+              key={product.id}
+              variants={{
+                hidden: {
+                  opacity: 0,
+                  y: 25,
+                },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    duration: 0.35,
+                    ease: "easeOut",
+                  },
+                },
+              }}
+              whileHover={{
+                y: -5,
               }}
             >
 
-              {/* BANK IMAGE */}
-              <div className="bank-image">
+              <div className="product-image-wrapper">
+
                 <img
-                  src={account.image}
-                  alt={`${account.bank} logo`}
+                  src={product.image}
+                  alt={`${product.name} - Platinum Farida`}
+                  className="product-image"
+                  loading="lazy"
+                  decoding="async"
                 />
-              </div>
 
-              <div className="payment-card-content">
+                <div className="product-image-overlay"></div>
 
-                <span className="payment-method">
-                  BANK TRANSFER
+                <span className="product-badge">
+                  Fresh
                 </span>
 
-                <h3>{account.bank}</h3>
+              </div>
 
-                {/* ACCOUNT NAME */}
-                <div className="payment-detail">
-                  <span>ACCOUNT NAME</span>
 
-                  <strong>
-                    {account.accountName}
-                  </strong>
+              <div className="product-content">
+
+                <div className="product-info">
+
+                  <h3>
+                    {product.name}
+                  </h3>
+
+                  <p>
+                    ₦{product.price.toLocaleString()}
+                  </p>
+
                 </div>
 
-                {/* ACCOUNT NUMBER */}
-                <div className="payment-detail account-number-detail">
-                  <div>
-                    <span>ACCOUNT NUMBER</span>
 
-                    <strong>
-                      {account.accountNumber}
-                    </strong>
-                  </div>
-
-                  <button
-                    type="button"
-                    className="copy-button"
-                    onClick={() =>
-                      copyAccountNumber(account.accountNumber)
-                    }
-                  >
-                    {copiedAccount === account.accountNumber ? (
-                      <>
-                        <CheckCircle2 size={15} />
-                        Copied
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={15} />
-                        Copy
-                      </>
-                    )}
-                  </button>
-                </div>
+                <motion.button
+                  type="button"
+                  className="add-cart-button"
+                  onClick={() => addToCart(product)}
+                  whileHover={{
+                    scale: 1.02,
+                  }}
+                  whileTap={{
+                    scale: 0.97,
+                  }}
+                >
+                  <span>+</span>
+                  Add to Cart
+                </motion.button>
 
               </div>
-            </motion.div>
+
+            </motion.article>
           ))}
 
-        </div>
-
-        {/* PAYMENT INSTRUCTION */}
-        <motion.div
-          className="payment-instruction"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <CreditCard size={20} />
-
-          <p>
-            Please confirm the account name and account number
-            before making your transfer.
-          </p>
         </motion.div>
-
-        {/* CONFIRM PAYMENT */}
-        <motion.div
-          className="payment-confirmation"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <div>
-            <span>PAYMENT COMPLETED?</span>
-
-            <h3>
-              Send your payment confirmation
-            </h3>
-
-            <p>
-              After making your transfer, contact Platinum
-              Farida on WhatsApp so your payment can be confirmed.
-            </p>
-          </div>
-
-          <a
-            href={`https://wa.me/2348036453718?text=${whatsappMessage}`}
-            target="_blank"
-            rel="noreferrer"
-            className="payment-whatsapp"
-          >
-            <MessageCircle size={18} />
-            I've Made Payment
-          </a>
-        </motion.div>
-
-        <p className="payment-note">
-          Orders are processed after payment has been confirmed.
-        </p>
 
       </div>
+
     </section>
   );
 }
 
-export default Payment;
+export default Products;
