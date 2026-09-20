@@ -328,10 +328,6 @@
 
   position: relative;
 
-  /*
-    Keeps hamburger/X above
-    the mobile dropdown.
-  */
   z-index: 1200;
 
   transition:
@@ -492,6 +488,10 @@
     gap: 8px;
 
     margin-left: auto;
+
+    position: relative;
+
+    z-index: 1200;
   }
 
 
@@ -518,6 +518,10 @@
     height: 40px;
 
     flex: 0 0 40px;
+
+    position: relative;
+
+    z-index: 1300;
   }
 
   .menu-button span {
@@ -537,7 +541,7 @@
 
 
   /* =========================
-     GLASS MOBILE DROPDOWN
+     MOBILE DROPDOWN
   ========================= */
 
   .mobile-nav {
@@ -557,26 +561,19 @@
     padding: 10px;
 
     border: 1px solid rgba(255, 255, 255, 0.10);
+
     border-radius: 18px;
 
-    /*
-      Semi-transparent background allows
-      the blur effect to actually show.
-    */
-    background: rgba(13, 11, 11, 0.68);
-
-    /*
-      Blurs whatever is behind the menu.
-    */
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
+    background: rgba(13, 11, 11, 0.92);
 
     box-shadow:
-      0 25px 60px rgba(0, 0, 0, 0.45),
+      0 25px 60px rgba(0, 0, 0, 0.5),
       0 0 30px rgba(185, 28, 28, 0.08);
 
     opacity: 0;
+
     visibility: hidden;
+
     pointer-events: none;
 
     transform: translateY(-10px);
@@ -586,10 +583,33 @@
       transform 0.25s ease,
       visibility 0.25s ease;
 
-    /*
-      Menu stays below hamburger/X.
-    */
-    z-index: 1100;
+    z-index: 1200;
+  }
+
+
+  /* =========================
+     FULL PAGE BLUR EFFECT
+  ========================= */
+
+  .mobile-nav::before {
+    content: "";
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(9px);
+    -webkit-backdrop-filter: blur(9px);
+
+    z-index: -1;
+
+    pointer-events: none;
   }
 
 
@@ -627,6 +647,10 @@
 
     font-size: 14px;
     font-weight: 700;
+
+    position: relative;
+
+    z-index: 2;
 
     transition:
       background 0.2s ease,
@@ -737,7 +761,9 @@
   .menu-button,
   .menu-button span,
   .mobile-nav,
-  .mobile-nav a {
+  .mobile-nav a,
+  .mobile-nav::before {
     transition: none;
+    animation: none;
   }
 }
