@@ -10,6 +10,7 @@ import Cart from "./Components/Cart";
 import Payment from "./Components/Payment";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
+import BackToTop from "./Components/BackToTop";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -101,6 +102,9 @@ function App() {
       <Contact />
 
       <Footer />
+
+      {/* BACK TO HOME BUTTON */}
+      <BackToTop />
     </>
   );
 }
