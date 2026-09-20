@@ -6,6 +6,8 @@
   position: relative;
 
   width: 100%;
+  max-width: 100%;
+
   box-sizing: border-box;
 
   overflow: hidden;
@@ -18,18 +20,23 @@
 }
 
 
+/* =====================================================
+   CONTAINER
+===================================================== */
+
 .products-container {
   position: relative;
 
   z-index: 2;
 
   width: 100%;
-
   max-width: 1250px;
 
   margin: 0 auto;
 
   box-sizing: border-box;
+
+  min-width: 0;
 }
 
 
@@ -74,11 +81,14 @@
 ===================================================== */
 
 .products-header {
+  width: 100%;
   max-width: 700px;
 
   margin: 0 auto 65px;
 
   text-align: center;
+
+  min-width: 0;
 }
 
 
@@ -109,6 +119,8 @@
 
   height: 1px;
 
+  flex-shrink: 0;
+
   background: #dc2626;
 
   box-shadow:
@@ -119,6 +131,8 @@
 .products-header h2 {
   margin: 0;
 
+  max-width: 100%;
+
   font-size: clamp(42px, 5vw, 64px);
 
   line-height: 1;
@@ -126,6 +140,8 @@
   font-weight: 900;
 
   letter-spacing: -2px;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -135,6 +151,7 @@
 
 
 .products-header p {
+  width: 100%;
   max-width: 600px;
 
   margin: 24px auto 0;
@@ -144,6 +161,8 @@
   font-size: 15px;
 
   line-height: 1.8;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -152,6 +171,11 @@
 ===================================================== */
 
 .products-grid {
+  width: 100%;
+  max-width: 100%;
+
+  min-width: 0;
+
   display: grid;
 
   grid-template-columns:
@@ -166,9 +190,14 @@
 ===================================================== */
 
 .product-card {
-  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 
   min-width: 0;
+
+  overflow: hidden;
+
+  box-sizing: border-box;
 
   border-radius: 22px;
 
@@ -234,10 +263,13 @@
   position: relative;
 
   width: 100%;
+  max-width: 100%;
 
   height: 270px;
 
   overflow: hidden;
+
+  box-sizing: border-box;
 }
 
 
@@ -245,6 +277,7 @@
   display: block;
 
   width: 100%;
+  max-width: 100%;
 
   height: 100%;
 
@@ -285,6 +318,10 @@
 
   left: 15px;
 
+  max-width: calc(100% - 30px);
+
+  box-sizing: border-box;
+
   padding: 7px 12px;
 
   border-radius: 20px;
@@ -324,13 +361,21 @@
 ===================================================== */
 
 .product-content {
+  width: 100%;
+  max-width: 100%;
+
   padding: 22px;
 
   box-sizing: border-box;
+
+  min-width: 0;
 }
 
 
 .product-info {
+  width: 100%;
+  min-width: 0;
+
   margin-bottom: 20px;
 }
 
@@ -338,22 +383,30 @@
 .product-info h3 {
   margin: 0;
 
+  max-width: 100%;
+
   color: #ffffff;
 
   font-size: 19px;
 
   font-weight: 800;
+
+  overflow-wrap: anywhere;
 }
 
 
 .product-info p {
   margin: 8px 0 0;
 
+  max-width: 100%;
+
   color: #e8c978;
 
   font-size: 15px;
 
   font-weight: 800;
+
+  overflow-wrap: anywhere;
 }
 
 
@@ -363,8 +416,11 @@
 
 .add-cart-button {
   width: 100%;
+  max-width: 100%;
 
   height: 46px;
+
+  box-sizing: border-box;
 
   display: flex;
 
