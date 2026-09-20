@@ -31,7 +31,9 @@
   box-sizing: border-box;
 }
 
-/* BACKGROUND GLOWS */
+/* =====================================================
+   BACKGROUND GLOWS
+===================================================== */
 
 .cart-glow {
   position: absolute;
@@ -62,7 +64,9 @@
   background: #991b1b;
 }
 
-/* HEADER */
+/* =====================================================
+   HEADER
+===================================================== */
 
 .cart-header {
   width: 100%;
@@ -180,7 +184,9 @@
     0 20px 55px rgba(0, 0, 0, 0.25);
 }
 
-/* BOX HEADER */
+/* =====================================================
+   BOX HEADER
+===================================================== */
 
 .cart-box-header {
   display: flex;
@@ -549,9 +555,15 @@
 ===================================================== */
 
 .customer-form {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
   background: #f7f3ed;
 
   color: #171313;
+
+  box-sizing: border-box;
 }
 
 .customer-form .cart-box-header {
@@ -574,6 +586,7 @@
 .form-group {
   width: 100%;
   max-width: 100%;
+  min-width: 0;
 
   margin-bottom: 17px;
 
@@ -599,6 +612,7 @@
 
   width: 100%;
   max-width: 100%;
+  min-width: 0;
 
   box-sizing: border-box;
 
@@ -667,6 +681,40 @@
   gap: 12px;
 
   box-sizing: border-box;
+}
+
+.form-row .form-group {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+.form-row input[type="date"],
+.form-row input[type="time"] {
+  display: block;
+
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  height: 47px;
+
+  box-sizing: border-box;
+
+  padding: 13px 10px;
+
+  overflow: hidden;
+
+  font-size: 12px;
+}
+
+/* Native date/time value */
+
+.form-row input[type="date"]::-webkit-date-and-time-value,
+.form-row input[type="time"]::-webkit-date-and-time-value {
+  text-align: left;
 }
 
 /* =====================================================
@@ -775,21 +823,17 @@
 ===================================================== */
 
 @media (max-width: 850px) {
-
   .cart-layout {
     grid-template-columns:
       minmax(0, 1fr);
   }
-
 }
-
 
 /* =====================================================
    MOBILE
 ===================================================== */
 
 @media (max-width: 600px) {
-
   .cart-section {
     padding: 80px 16px;
   }
@@ -839,26 +883,43 @@
     font-size: 20px;
   }
 
+  /* DATE & TIME STACK ON MOBILE */
   .form-row {
-    grid-template-columns:
-      minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr);
 
     gap: 0;
+  }
+
+  .form-row .form-group {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .form-row input[type="date"],
+  .form-row input[type="time"] {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    height: 47px;
+
+    padding-left: 12px;
+    padding-right: 8px;
+
+    font-size: 16px;
   }
 
   .place-order-button {
     min-height: 54px;
   }
-
 }
-
 
 /* =====================================================
    VERY SMALL PHONES
 ===================================================== */
 
 @media (max-width: 380px) {
-
   .cart-section {
     padding-left: 12px;
     padding-right: 12px;
@@ -870,18 +931,28 @@
 
   .cart-item {
     gap: 8px;
+
     padding: 9px;
   }
 
   .cart-item img {
     width: 48px;
     height: 48px;
+
     max-width: 48px;
   }
 
   .cart-item > strong {
     font-size: 10px;
+
     max-width: 30%;
   }
 
+  .form-row input[type="date"],
+  .form-row input[type="time"] {
+    font-size: 16px;
+
+    padding-left: 10px;
+    padding-right: 6px;
+  }
 }
