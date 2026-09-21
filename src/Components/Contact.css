@@ -76,16 +76,15 @@
   box-sizing: border-box;
 }
 
-.contact-label::before,
-.contact-label::after {
-  content: "";
-  flex-shrink: 1;
+.contact-label span {
+  flex-shrink: 0;
   width: 32px;
   height: 1px;
   background: #dc2626;
 }
 
-.contact-label span {
+.contact-label p {
+  margin: 0;
   max-width: 100%;
   color: #e8c978;
   font-size: 10px;
@@ -110,7 +109,7 @@
   color: #dc2626;
 }
 
-.contact-header p {
+.contact-header > p {
   width: 100%;
   max-width: 620px;
   margin: 20px auto 0;
@@ -173,12 +172,22 @@
   );
 }
 
+/* Decorative line from JSX */
+.contact-info-line {
+  width: 45px;
+  height: 2px;
+  margin-bottom: 25px;
+  background: #dc2626;
+}
+
 .contact-info-header {
   min-width: 0;
   margin-bottom: 35px;
 }
 
-.contact-info-label {
+.contact-info-header > span {
+  display: block;
+  max-width: 100%;
   color: #ef4444;
   font-size: 10px;
   font-weight: 700;
@@ -197,11 +206,11 @@
   overflow-wrap: anywhere;
 }
 
-.contact-info h3 span {
+.contact-info h3 strong {
   color: #dc2626;
 }
 
-.contact-info-description {
+.contact-info-header p {
   width: 100%;
   max-width: 470px;
   margin: 15px 0 0;
@@ -272,7 +281,6 @@
   overflow-wrap: anywhere;
 }
 
-.contact-detail-content p,
 .contact-detail-content div {
   max-width: 100%;
   margin: 0;
@@ -324,7 +332,7 @@
 
 .business-row {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
   max-width: 100%;
@@ -340,7 +348,7 @@
   overflow-wrap: anywhere;
 }
 
-.business-row span:last-child {
+.business-row strong {
   min-width: 0;
   max-width: 240px;
   color: #d4d4d4;
@@ -351,7 +359,7 @@
   word-break: break-word;
 }
 
-.business-row.established span:last-child {
+.business-row.established strong {
   color: #e8c978;
 }
 
@@ -523,6 +531,10 @@
   box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.08);
 }
 
+.contact-form-group input:invalid:not(:placeholder-shown) {
+  border-color: #ef4444;
+}
+
 /* =========================================
    SUBMIT BUTTON
 ========================================= */
@@ -620,7 +632,7 @@
     font-size: 2.4rem;
   }
 
-  .contact-header p {
+  .contact-header > p {
     font-size: 12px;
   }
 
@@ -646,7 +658,7 @@
     align-items: flex-start;
   }
 
-  .business-row span:last-child {
+  .business-row strong {
     max-width: 180px;
   }
 }
@@ -675,7 +687,7 @@
     gap: 4px;
   }
 
-  .business-row span:last-child {
+  .business-row strong {
     max-width: 100%;
     text-align: left;
   }

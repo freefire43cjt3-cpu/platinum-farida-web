@@ -227,7 +227,6 @@
 
   backdrop-filter: blur(15px);
 
-  /* Subtle movement */
   animation:
     aboutBadgeFloat 4s ease-in-out infinite;
 }
@@ -588,7 +587,6 @@
     text-align: left;
   }
 
-  /* Compact button */
   .about-button {
     width: auto;
 
@@ -637,9 +635,10 @@
     font-size: 18px;
   }
 
+  /* FIXED FLOATING BADGE */
   .about-floating-badge {
     right: 8px;
-    bottom: -18px;
+    bottom: 12px;
 
     max-width: calc(100% - 16px);
 
@@ -691,14 +690,12 @@
     letter-spacing: 0.5px;
   }
 
-  /* Keep button compact on phones */
   .about-button {
     width: auto;
 
     min-height: 50px;
 
-    padding:
-      0 18px;
+    padding: 0 18px;
 
     font-size: 13px;
   }
@@ -734,15 +731,13 @@
   .about-button {
     font-size: 12px;
 
-    padding:
-      0 16px;
+    padding: 0 16px;
   }
 }
 
 
 /* =====================================================
    REDUCE MOTION
-   Helps users who prefer less animation
 ===================================================== */
 
 @media (prefers-reduced-motion: reduce) {
