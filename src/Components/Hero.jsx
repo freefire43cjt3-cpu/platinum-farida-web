@@ -78,6 +78,21 @@ function Hero() {
             }}
           >
 
+            
+
+            <motion.a
+              href="#about"
+              className="hero-secondary-btn"
+              whileHover={{
+                scale: 1.03,
+              }}
+              whileTap={{
+                scale: 0.97,
+              }}
+            >
+              Discover Platinum Farida
+            </motion.a>
+
             <motion.a
               href="#products"
               className="hero-primary-btn"
@@ -91,19 +106,6 @@ function Hero() {
             >
               Order Now
               <span>→</span>
-            </motion.a>
-
-            <motion.a
-              href="#about"
-              className="hero-secondary-btn"
-              whileHover={{
-                scale: 1.03,
-              }}
-              whileTap={{
-                scale: 0.97,
-              }}
-            >
-              Discover Platinum Farida
             </motion.a>
 
           </motion.div>
