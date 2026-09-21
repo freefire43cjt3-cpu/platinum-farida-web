@@ -538,6 +538,8 @@
 }
 
 
+
+
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -549,46 +551,35 @@
   }
 
   .about-container {
-    grid-template-columns:
-      minmax(0, 1fr);
-
-    /*
-      Extra space between image and text.
-      This prevents the badge from entering
-      the text area on mobile.
-    */
-    gap: 80px;
+    grid-template-columns: 1fr;
+    gap: 55px;
   }
 
   .about-image-side {
+    width: 100%;
     max-width: 600px;
-
-    /*
-      Gives the image area a little breathing room.
-    */
-    margin-bottom: 0;
+    margin: 0 auto;
   }
 
-  /*
-    Keep the promise badge completely inside
-    the image area on mobile.
-  */
   .about-floating-badge {
     right: 12px;
     bottom: 18px;
 
+    width: auto;
     max-width: calc(100% - 24px);
 
     padding: 12px 15px;
 
-    /*
-      Prevent the floating animation from
-      moving the badge into the text area.
-    */
     animation: none;
+
+    z-index: 10;
   }
 
   .about-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
     max-width: 650px;
 
     margin: 0 auto;
@@ -618,7 +609,6 @@
 
   .about-button {
     width: auto;
-
     max-width: 100%;
 
     margin-left: auto;
@@ -641,16 +631,11 @@
   }
 
   .about-container {
-    /*
-      More separation between image and
-      the About text on small screens.
-    */
-    gap: 80px;
+    gap: 55px;
   }
 
   .about-image-frame {
     padding: 6px;
-
     border-radius: 24px;
   }
 
@@ -668,24 +653,18 @@
     font-size: 18px;
   }
 
-  /*
-    FINAL MOBILE BADGE FIX
-  */
   .about-floating-badge {
     right: 8px;
     bottom: 12px;
 
+    width: auto;
     max-width: calc(100% - 16px);
-
-    box-sizing: border-box;
 
     padding: 11px 14px;
 
-    /*
-      No vertical movement on small phones.
-      This keeps it away from the text below.
-    */
     animation: none;
+
+    z-index: 10;
   }
 
   .badge-icon {
@@ -694,10 +673,6 @@
 
     font-size: 14px;
 
-    /*
-      Stop the icon pulse from causing
-      unnecessary movement on small screens.
-    */
     animation: none;
   }
 
@@ -707,19 +682,16 @@
 
   .about-content h2 {
     font-size: 39px;
-
     letter-spacing: -1px;
   }
 
   .about-intro {
     font-size: 15px;
-
     line-height: 1.75;
   }
 
   .about-description {
     font-size: 14px;
-
     line-height: 1.75;
   }
 
@@ -733,7 +705,6 @@
 
   .about-stat span {
     font-size: 9px;
-
     letter-spacing: 0.5px;
   }
 
@@ -756,7 +727,7 @@
 @media (max-width: 360px) {
 
   .about-container {
-    gap: 85px;
+    gap: 50px;
   }
 
   .about-content h2 {
@@ -781,7 +752,6 @@
 
   .about-button {
     font-size: 12px;
-
     padding: 0 16px;
   }
 }
