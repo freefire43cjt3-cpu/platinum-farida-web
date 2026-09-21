@@ -67,7 +67,9 @@
   box-sizing: border-box;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
   align-items: center;
 
@@ -517,7 +519,6 @@
 
   backdrop-filter: blur(15px);
 
-  /* Subtle animation */
   animation:
     standardFloat 3.5s ease-in-out infinite;
 }
@@ -617,9 +618,9 @@
 @media (max-width: 800px) {
 
   .hero-container {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: 1fr;
 
-    gap: 60px;
+    gap: 55px;
 
     padding:
       130px
@@ -671,6 +672,34 @@
   .hero-visual {
     width: 100%;
     max-width: 550px;
+
+    /*
+      Extra space is reserved for the
+      floating card below the image.
+    */
+    padding-bottom: 70px;
+
+    box-sizing: border-box;
+  }
+
+  /*
+    Keep the card attached to the image,
+    but never allow it to cover the
+    content below.
+  */
+  .hero-floating-card {
+    left: 12px;
+    bottom: 25px;
+
+    max-width: calc(100% - 24px);
+
+    box-sizing: border-box;
+
+    padding: 12px 15px;
+
+    animation: none;
+
+    z-index: 10;
   }
 }
 
@@ -764,15 +793,19 @@
     font-size: 11px;
   }
 
+  /*
+    On small phones, keep the card
+    inside the visual's reserved space.
+  */
   .hero-floating-card {
-    left: 12px;
-    bottom: -20px;
+    left: 8px;
+    bottom: 20px;
 
-    max-width: calc(100% - 24px);
+    max-width: calc(100% - 16px);
 
-    box-sizing: border-box;
+    padding: 11px 14px;
 
-    padding: 12px 15px;
+    animation: none;
   }
 
   .hero-floating-card strong {
@@ -790,6 +823,8 @@
   .hero-container {
     padding-left: 12px;
     padding-right: 12px;
+
+    gap: 45px;
   }
 
   .hero-content h1 {
@@ -805,17 +840,33 @@
     align-items: center;
   }
 
+  .hero-visual {
+    padding-bottom: 65px;
+  }
+
   .hero-floating-card {
-    position: relative;
+    left: 50%;
+    bottom: 18px;
 
-    left: auto;
-    bottom: auto;
+    transform: translateX(-50%);
 
-    width: fit-content;
+    width: max-content;
+    max-width: calc(100% - 20px);
 
-    margin:
-      12px
-      auto
-      0;
+    margin: 0;
+
+    animation: none;
+  }
+}
+
+
+/* =====================================================
+   REDUCE MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-floating-card {
+    animation: none;
   }
 }
