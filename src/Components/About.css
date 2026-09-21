@@ -543,7 +543,6 @@
 /* =====================================================
    MOBILE
 ===================================================== */
-
 @media (max-width: 800px) {
 
   .about-section {
@@ -552,27 +551,37 @@
 
   .about-container {
     grid-template-columns: 1fr;
-    gap: 55px;
+    gap: 35px;
   }
 
   .about-image-side {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
   }
 
   .about-floating-badge {
-    right: 12px;
-    bottom: 18px;
+    position: relative;
 
-    width: auto;
-    max-width: calc(100% - 24px);
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: fit-content;
+    max-width: 100%;
+
+    margin: 18px 0 0 auto;
+
+    box-sizing: border-box;
 
     padding: 12px 15px;
 
     animation: none;
 
-    z-index: 10;
+    z-index: 2;
   }
 
   .about-content {
@@ -619,11 +628,9 @@
   }
 }
 
-
 /* =====================================================
-   SMALL PHONES
+    SMALL PHONES
 ===================================================== */
-
 @media (max-width: 500px) {
 
   .about-section {
@@ -631,7 +638,7 @@
   }
 
   .about-container {
-    gap: 55px;
+    gap: 35px;
   }
 
   .about-image-frame {
@@ -654,17 +661,20 @@
   }
 
   .about-floating-badge {
-    right: 8px;
-    bottom: 12px;
+    position: relative;
 
-    width: auto;
-    max-width: calc(100% - 16px);
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: fit-content;
+    max-width: calc(100% - 8px);
+
+    margin: 16px 0 0 auto;
 
     padding: 11px 14px;
 
     animation: none;
-
-    z-index: 10;
   }
 
   .badge-icon {
@@ -710,11 +720,8 @@
 
   .about-button {
     width: auto;
-
     min-height: 50px;
-
     padding: 0 18px;
-
     font-size: 13px;
   }
 }
