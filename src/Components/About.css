@@ -552,11 +552,40 @@
     grid-template-columns:
       minmax(0, 1fr);
 
-    gap: 65px;
+    /*
+      Extra space between image and text.
+      This prevents the badge from entering
+      the text area on mobile.
+    */
+    gap: 80px;
   }
 
   .about-image-side {
     max-width: 600px;
+
+    /*
+      Gives the image area a little breathing room.
+    */
+    margin-bottom: 0;
+  }
+
+  /*
+    Keep the promise badge completely inside
+    the image area on mobile.
+  */
+  .about-floating-badge {
+    right: 12px;
+    bottom: 18px;
+
+    max-width: calc(100% - 24px);
+
+    padding: 12px 15px;
+
+    /*
+      Prevent the floating animation from
+      moving the badge into the text area.
+    */
+    animation: none;
   }
 
   .about-content {
@@ -612,7 +641,11 @@
   }
 
   .about-container {
-    gap: 55px;
+    /*
+      More separation between image and
+      the About text on small screens.
+    */
+    gap: 80px;
   }
 
   .about-image-frame {
@@ -635,7 +668,9 @@
     font-size: 18px;
   }
 
-  /* FIXED FLOATING BADGE */
+  /*
+    FINAL MOBILE BADGE FIX
+  */
   .about-floating-badge {
     right: 8px;
     bottom: 12px;
@@ -645,6 +680,12 @@
     box-sizing: border-box;
 
     padding: 11px 14px;
+
+    /*
+      No vertical movement on small phones.
+      This keeps it away from the text below.
+    */
+    animation: none;
   }
 
   .badge-icon {
@@ -652,6 +693,12 @@
     height: 34px;
 
     font-size: 14px;
+
+    /*
+      Stop the icon pulse from causing
+      unnecessary movement on small screens.
+    */
+    animation: none;
   }
 
   .about-floating-badge strong {
@@ -707,6 +754,10 @@
 ===================================================== */
 
 @media (max-width: 360px) {
+
+  .about-container {
+    gap: 85px;
+  }
 
   .about-content h2 {
     font-size: 34px;
