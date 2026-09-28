@@ -512,6 +512,52 @@
 }
 
 /* =====================================================
+   PRICE SUMMARY
+===================================================== */
+
+.cart-price-summary {
+  width: 100%;
+  max-width: 100%;
+
+  margin-top: 25px;
+  padding-top: 20px;
+
+  box-sizing: border-box;
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cart-price-summary > div {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 12px;
+}
+
+.cart-price-summary > div:last-child {
+  margin-bottom: 0;
+}
+
+.cart-price-summary span {
+  color: #85807c;
+
+  font-size: 13px;
+}
+
+.cart-price-summary strong {
+  flex-shrink: 0;
+
+  color: #c9c1ba;
+
+  font-size: 13px;
+}
+
+/* =====================================================
    TOTAL
 ===================================================== */
 
@@ -526,7 +572,7 @@
   width: 100%;
   max-width: 100%;
 
-  margin-top: 25px;
+  margin-top: 18px;
 
   padding-top: 20px;
 
@@ -540,6 +586,8 @@
   color: #85807c;
 
   font-size: 13px;
+
+  font-weight: 700;
 }
 
 .cart-total strong {
@@ -640,6 +688,12 @@
 
 .form-group input {
   height: 47px;
+}
+
+.form-group select {
+  height: 47px;
+
+  cursor: pointer;
 }
 
 .form-group textarea {
@@ -879,13 +933,35 @@
     font-size: 11px;
   }
 
+  .cart-price-summary {
+    margin-top: 20px;
+
+    padding-top: 17px;
+  }
+
+  .cart-price-summary span {
+    font-size: 12px;
+  }
+
+  .cart-price-summary strong {
+    font-size: 12px;
+  }
+
+  .cart-total {
+    margin-top: 16px;
+
+    padding-top: 17px;
+  }
+
   .cart-total strong {
     font-size: 20px;
   }
 
   /* DATE & TIME STACK ON MOBILE */
+
   .form-row {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns:
+      minmax(0, 1fr);
 
     gap: 0;
   }
@@ -946,6 +1022,18 @@
     font-size: 10px;
 
     max-width: 30%;
+  }
+
+  .cart-price-summary span {
+    font-size: 11px;
+  }
+
+  .cart-price-summary strong {
+    font-size: 11px;
+  }
+
+  .cart-total strong {
+    font-size: 18px;
   }
 
   .form-row input[type="date"],

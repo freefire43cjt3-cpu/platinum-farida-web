@@ -11,6 +11,7 @@ function Cart({
     name: "",
     phone: "",
     orderType: "Pickup",
+    deliveryLocation: "",
     address: "",
     date: "",
     time: "",
@@ -18,6 +19,17 @@ function Cart({
   });
 
   const [sending, setSending] = useState(false);
+
+  // =========================
+  // DELIVERY FEES
+  // =========================
+
+  const deliveryFees = {
+    "Obio/Akpor": 10000,
+    "Port Harcourt City": 4000,
+    Eleme: 10000,
+    Oyigbo: 8000,
+  };
 
   // =========================
   // UPDATE CUSTOMER DETAILS
@@ -36,7 +48,7 @@ function Cart({
   // CART TOTAL
   // =========================
 
-  const total = cart.reduce(
+  const subtotal = cart.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
@@ -45,6 +57,22 @@ function Cart({
     (sum, item) => sum + item.quantity,
     0
   );
+
+  // =========================
+  // DELIVERY FEE
+  // =========================
+
+  const deliveryFee =
+    customer.orderType === "Delivery" &&
+    customer.deliveryLocation
+      ? deliveryFees[customer.deliveryLocation]
+      : 0;
+
+  // =========================
+  // GRAND TOTAL
+  // =========================
+
+  const grandTotal = subtotal + deliveryFee;
 
   // =========================
   // PLACE ORDER
@@ -68,12 +96,20 @@ function Cart({
       return;
     }
 
-    if (
-      customer.orderType === "Delivery" &&
-      !customer.address.trim()
-    ) {
-      alert("Please enter your delivery address.");
-      return;
+    // =========================
+    // DELIVERY VALIDATION
+    // =========================
+
+    if (customer.orderType === "Delivery") {
+      if (!customer.deliveryLocation) {
+        alert("Please select your delivery location.");
+        return;
+      }
+
+      if (!customer.address.trim()) {
+        alert("Please enter your delivery address.");
+        return;
+      }
     }
 
     // =========================
@@ -94,34 +130,72 @@ function Cart({
       .join("\n");
 
     // =========================
+    // DELIVERY INFORMATION
+    // =========================
+
+    const deliveryInformation =
+      customer.orderType === "Delivery"
+        ? `
+DELIVERY LOCATION: ${customer.deliveryLocation}
+DELIVERY FEE: ₦${deliveryFee.toLocaleString()}
+DELIVERY ADDRESS: ${customer.address}
+`
+        : `
+DELIVERY LOCATION: N/A
+DELIVERY FEE: ₦0
+PICKUP: Customer will pick up the order.
+`;
+
+    // =========================
     // ORDER MESSAGE
     // =========================
 
     const message = `
 NEW PLATINUM FARIDA ORDER
 
+=========================
 CUSTOMER
+=========================
+
 Name: ${customer.name}
 Phone: ${customer.phone}
 
+=========================
 ORDER
+=========================
+
 ${orderItems}
 
-TOTAL: ₦${total.toLocaleString()}
+SUBTOTAL: ₦${subtotal.toLocaleString()}
+
+=========================
+DELIVERY
+=========================
 
 ORDER TYPE: ${customer.orderType}
 
-${
-  customer.orderType === "Delivery"
-    ? `DELIVERY ADDRESS: ${customer.address}`
-    : "PICKUP: Customer will pick up the order."
-}
+${deliveryInformation}
+
+=========================
+TOTAL
+=========================
+
+GRAND TOTAL: ₦${grandTotal.toLocaleString()}
+
+=========================
+SCHEDULE
+=========================
 
 DATE: ${customer.date}
 TIME: ${customer.time}
 
-NOTE:
+=========================
+NOTE
+=========================
+
 ${customer.note.trim() || "No additional note."}
+
+=========================
 
 Sent from Platinum Farida Website
     `.trim();
@@ -130,19 +204,21 @@ Sent from Platinum Farida Website
 
     try {
       // =========================
-      // FORMSPREE
+      // SEND TO FORMSPREE EMAIL
       // =========================
 
       const response = await fetch(
         "https://formspree.io/f/xaenwarq",
         {
           method: "POST",
+
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
+
           body: JSON.stringify({
-            subject: "New Platinum Farida Order",
+            subject: `New Platinum Farida Order - ${customer.name}`,
 
             customer_name: customer.name,
 
@@ -150,14 +226,25 @@ Sent from Platinum Farida Website
 
             order_items: orderItems,
 
-            total: `₦${total.toLocaleString()}`,
+            subtotal: `₦${subtotal.toLocaleString()}`,
 
             order_type: customer.orderType,
+
+            delivery_location:
+              customer.orderType === "Delivery"
+                ? customer.deliveryLocation
+                : "Pickup",
+
+            delivery_fee:
+              `₦${deliveryFee.toLocaleString()}`,
 
             delivery_address:
               customer.orderType === "Delivery"
                 ? customer.address
                 : "Pickup",
+
+            grand_total:
+              `₦${grandTotal.toLocaleString()}`,
 
             order_date: customer.date,
 
@@ -190,7 +277,7 @@ Sent from Platinum Farida Website
       }
 
       // =========================
-      // WHATSAPP
+      // SEND TO WHATSAPP
       // =========================
 
       const managerWhatsApp =
@@ -222,6 +309,7 @@ Sent from Platinum Farida Website
         name: "",
         phone: "",
         orderType: "Pickup",
+        deliveryLocation: "",
         address: "",
         date: "",
         time: "",
@@ -435,14 +523,40 @@ Sent from Platinum Farida Website
 
                 </div>
 
+                {/* =========================
+                    PRICE SUMMARY
+                ========================= */}
+
+                <div className="cart-price-summary">
+
+                  <div>
+                    <span>Subtotal</span>
+
+                    <strong>
+                      ₦
+                      {subtotal.toLocaleString()}
+                    </strong>
+                  </div>
+
+                  <div>
+                    <span>Delivery</span>
+
+                    <strong>
+                      ₦
+                      {deliveryFee.toLocaleString()}
+                    </strong>
+                  </div>
+
+                </div>
+
                 <div className="cart-total">
                   <span>
-                    Order Total
+                    Grand Total
                   </span>
 
                   <strong>
                     ₦
-                    {total.toLocaleString()}
+                    {grandTotal.toLocaleString()}
                   </strong>
                 </div>
               </>
@@ -509,6 +623,7 @@ Sent from Platinum Farida Website
               <input
                 type="tel"
                 name="phone"
+                placeholder="Enter your phone number"
                 value={customer.phone}
                 onChange={updateCustomer}
                 required
@@ -537,11 +652,54 @@ Sent from Platinum Farida Website
               </select>
             </div>
 
+            {/* DELIVERY LOCATION */}
+
+            {customer.orderType ===
+              "Delivery" && (
+              <div className="form-group">
+
+                <label>
+                  Delivery Location *
+                </label>
+
+                <select
+                  name="deliveryLocation"
+                  value={
+                    customer.deliveryLocation
+                  }
+                  onChange={updateCustomer}
+                  required
+                >
+                  <option value="">
+                    Select delivery location
+                  </option>
+
+                  <option value="Obio/Akpor">
+                    Obio/Akpor — ₦10,000
+                  </option>
+
+                  <option value="Port Harcourt City">
+                    Port Harcourt City — ₦4,000
+                  </option>
+
+                  <option value="Eleme">
+                    Eleme — ₦8,000
+                  </option>
+
+                  <option value="Oyigbo">
+                    Oyigbo — ₦5,000
+                  </option>
+                </select>
+
+              </div>
+            )}
+
             {/* DELIVERY ADDRESS */}
 
             {customer.orderType ===
               "Delivery" && (
               <div className="form-group">
+
                 <label>
                   Delivery Address *
                 </label>
@@ -554,6 +712,7 @@ Sent from Platinum Farida Website
                   rows="3"
                   required
                 ></textarea>
+
               </div>
             )}
 
@@ -633,6 +792,7 @@ Sent from Platinum Farida Website
               Platinum Farida by email
               and WhatsApp.
             </p>
+
           </motion.form>
 
         </div>
