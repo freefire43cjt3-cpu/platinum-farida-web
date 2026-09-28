@@ -25,7 +25,7 @@ function Cart({
   // =========================
 
   const deliveryFees = {
-    "Obio/Akpor": 10000,
+    "Obio/Akpor": 4000,
     "Port Harcourt City": 4000,
     Eleme: 10000,
     Oyigbo: 8000,
