@@ -675,7 +675,7 @@ Sent from Platinum Farida Website
                   </option>
 
                   <option value="Obio/Akpor">
-                    Obio/Akpor — ₦10,000
+                    Obio/Akpor — ₦4,000
                   </option>
 
                   <option value="Port Harcourt City">
