@@ -509,7 +509,6 @@ Sent from Platinum Farida Website
               <input
                 type="tel"
                 name="phone"
-                placeholder="08012345678"
                 value={customer.phone}
                 onChange={updateCustomer}
                 required
